@@ -2,6 +2,13 @@
 <html>
   <head>
     <title>Brief Report Page</title>
+    <script>
+      function addItem(){
+        newItem = docment.createElement("div");
+        newItem.innerHTML = document.getElementById("box").value;
+        document.getElementById("list").appendChild(newItem);
+      }
+    </script>
     <style>
       .text {
         color: black;
@@ -10,7 +17,7 @@
         text-align: center;
       }
      .put{
-       font-size: 78px;
+       font-size: 50px;
        float: left;
      }
 
@@ -20,7 +27,9 @@
     <div class="text">
       Brief Reports
     </div>
-    <input class="put" type="text" id="box" value="Type here to add a brief report"/>
+    <input class="put" type="text" id="box" value="Type here to add a brief report idea"/>
+    <br/>
+    <input type="button" value="Add idea" onclick="addItem();"/>
   </body>
 </html>
 
