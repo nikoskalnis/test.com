@@ -7,6 +7,7 @@
         var newItem = document.createElement("div"); // Corrected typo here
         newItem.innerHTML = document.getElementById("box").value;
         document.getElementById("list").appendChild(newItem); // Appends to an element with id 'list'
+        saveList();
       }
       function saveList(){
         localStorage.storedList = document.getElementById("list").innerHTML;
