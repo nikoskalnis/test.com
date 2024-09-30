@@ -4,9 +4,9 @@
     <title>Brief Report Page</title>
     <script>
       function addItem(){
-        newItem = docment.createElement("div");
+        var newItem = document.createElement("div"); // Corrected typo here
         newItem.innerHTML = document.getElementById("box").value;
-        document.getElementById("list").appendChild(newItem);
+        document.getElementById("list").appendChild(newItem); // Appends to an element with id 'list'
       }
     </script>
     <style>
@@ -16,20 +16,24 @@
         font-size: 160px;
         text-align: center;
       }
-     .put{
+     .put {
        font-size: 50px;
        float: left;
      }
-
     </style>
   </head>
   <body>
     <div class="text">
       Brief Reports
     </div>
+    <br/>
     <input class="put" type="text" id="box" value="Type here to add a brief report idea"/>
     <br/>
     <input type="button" value="Add idea" onclick="addItem();"/>
+    </br>
+
+    <!-- Add the container to hold the new items -->
+    <div id="list"></div>
   </body>
 </html>
 
