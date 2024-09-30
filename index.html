@@ -8,6 +8,12 @@
         newItem.innerHTML = document.getElementById("box").value;
         document.getElementById("list").appendChild(newItem); // Appends to an element with id 'list'
       }
+      function saveList(){
+        localStorage.storedList = document.getElementById("list").innerHTML;
+      }
+      function loadList(){
+        document.getElementById("list").innerHTML = localStorage.storedList;
+      }
     </script>
     <style>
       .text {
@@ -38,6 +44,11 @@
 
     <!-- Add the container to hold the new items -->
     <div id="list"></div>
+    <script>
+      if(localStorage.storedList){
+        loadList();
+      }
+    </script>
   </body>
 </html>
 
