@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Brief Report Page</title>
+    <title>Request Sharing Page</title>
     <script>
-      function addItem(){
-        var newItem = document.createElement("div"); // Corrected typo here
-        newItem.innerHTML = document.getElementById("box").value;
-        document.getElementById("list").appendChild(newItem); // Appends to an element with id 'list'
-        saveList();
+      // Function to add a new request (idea)
+      function addItem() {
+        var input = document.getElementById("box").value; // Get the value from the input box
+        var newItem = document.createElement("div"); // Create a new <div> for the request
+        newItem.innerHTML = input; // Set the new <div>'s content to the input value
+        document.getElementById("list").appendChild(newItem); // Add the new item to the list
+        saveList(); // Call saveList to store the updated list
       }
-      function saveList(){
-        localStorage.storedList = document.getElementById("list").innerHTML;
+
+      // Function to save the list to localStorage
+      function saveList() {
+        localStorage.storedList = document.getElementById("list").innerHTML; // Save current list to localStorage
       }
-      function loadList(){
-        document.getElementById("list").innerHTML = localStorage.storedList;
+
+      // Function to load the list from localStorage
+      function loadList() {
+        if (localStorage.storedList) { // Check if there's a saved list
+          document.getElementById("list").innerHTML = localStorage.storedList; // Load saved list into the page
+        }
       }
     </script>
     <style>
@@ -27,7 +35,7 @@
         font-size: 50px;
         float: left;
       }
-      input[type="button"]{
+      input[type="button"] {
         background-color: yellow;
         font-size: 70px;
       }
@@ -35,22 +43,28 @@
   </head>
   <body>
     <div class="text">
-      Brief Reports
+      Questionable Requests
     </div>
     <br/>
-    <input class="put" type="text" id="box" value="Type here to add a brief report idea"/>
-    <br/>
-    <input type="button" value="Add idea" onclick="addItem();"/>
+
+    <!-- Input box for user to add a request -->
+    <input class="put" type="text" id="box" placeholder="Type here to add a request"/>
     <br/>
 
-    <!-- Add the container to hold the new items -->
+    <!-- Button to add the request -->
+    <input type="button" value="Add Request" onclick="addItem();"/>
+    
+    <!-- List where the requests will be added -->
     <div id="list"></div>
+    
+    <!-- Automatically loads the list from localStorage when the page loads -->
     <script>
-      if(localStorage.storedList){
-        loadList();
-      }
+      loadList(); // Call loadList when the page loads to retrieve any saved items
     </script>
   </body>
 </html>
+
+
+
 
 
